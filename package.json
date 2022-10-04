@@ -1,0 +1,67 @@
+{
+  "name": "ecl310",
+  "productName": "ECL Comfort 310 Steuerung",
+  "version": "0.9.1",
+  "description": "Steuerung der ECL Comfort 310",
+  "main": "main.js",
+  "dependencies": {
+    "electron-log": "^4.4.8",
+    "electron-store": "^8.1.0",
+    "modbus-stream": "^0.46.0"
+  },
+  "devDependencies": {
+    "electron": "^19.0.16",
+    "electron-builder": "^23.5.1",
+    "electron-rebuild": "^3.2.9",
+    "node-abi": "^3.25.0"
+  },
+  "scripts": {
+    "start": "electron .",
+    "rebuild": "npm exec electron-rebuild",
+    "publish": "npm exec electron-builder",
+    "postinstall": "npm run rebuild",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "mailsvb",
+  "license": "ISC",
+  "build": {
+    "appId": "com.mailsvb.ecl310",
+    "copyright": "",
+    "protocols": {
+      "name": "ECL 310 Comfort Steuerung",
+      "schemes": [
+        "ecl310"
+      ]
+    },
+    "npmRebuild": false,
+    "win": {
+      "executableName": "ECL",
+      "artifactName": "${productName}_${version}.${ext}",
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "msi",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "./images/logo.ico",
+      "signingHashAlgorithms": [
+        "sha1",
+        "sha256"
+      ],
+      "rfc3161TimeStampServer": "http://timestamp.digicert.com",
+      "timeStampServer": "http://timestamp.digicert.com"
+    },
+    "nsis": {
+      "createDesktopShortcut": false,
+      "deleteAppDataOnUninstall": true
+    }
+  }
+}

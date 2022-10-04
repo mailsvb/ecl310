@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,900');
+.container{ width: 100%; display: block; }
+.product-name { font-family: 'Roboto', sans-serif; font-size: 20px; color: #ffffff; }
+input { border:1px solid #eaeaea; font-family: 'Roboto', sans-serif; outline:none; }
+input#number:focus { border-color: #28a745; }
+.rel { position: relative; }
+.center { margin: 0px auto; }
+#main { line-height: 2rem; }
+#main button { float: right; background-color: #0596ff; border: none; color: #ffffff; font-size: 16px; margin: 0px 4px; cursor: pointer; border-radius: 50%; }
+#main button:hover { color: #000000; }
+.commands { justify-content: space-evenly !important; display: flex; position: absolute; width: -webkit-fill-available !important; }
+.commands button { width: 65px; height: 65px; float: center; border: none; color: #ffffff; font-size: 16px; margin: 0px 4px; cursor: pointer; border-radius: 50%; }
+.center button { vertical-align: baseline; }
+.center button.hidden { display: none !important; }
+.content .center { width: 450px; }
+.content select { width: 100%; resize: none; padding: 5px; margin-right: 5px; border-radius: 0.4rem; font-size: 0.9rem; cursor: pointer; }
+.content select * { cursor: pointer; }
+.content input[type=text] { width: 90%; resize: none; padding: 5px; border-bottom-left-radius: 0.4rem; border-top-left-radius: 0.4rem; text-align: center; font-size: 0.9rem; }
+button#saveip { margin: 0px !important; width: 10%; border-bottom-right-radius: 0.4rem; border-top-right-radius: 0.4rem; vertical-align: middle !important; }
+.content input[id^='remote-'] { width: 100%; resize: none; padding: 5px; border: 0px; text-align: center; font-size: 0.9rem; }
+@keyframes blink { 50% { border-color: #eaeaea; } }
+.form-label { margin: 0px !important; font-size: 0.9rem !important; }
+.left { width: 220px; text-align: left }
+.right { width: 220px; text-align: right }
+.held-call { border-bottom: 1px #ffc107 solid !important; animation: blink 1s; animation-iteration-count: 100; }
+.hold-call { border-bottom: 1px #ffc107 solid !important; }
+.error { background: #ff7777; text-align: center; }
+.error text { font-size: 18px; }

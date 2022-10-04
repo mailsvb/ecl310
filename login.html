@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="mailsvb">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com https://fonts.gstatic.com; img-src 'self' data:;">
+  <title>ECL Comfort 310 Steuerung</title>
+  <!-- Scripts -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/js/bootstrap.bundle.min.js"></script>
+  <!-- Stylesheets -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/css/bootstrap.min.css"/>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
+  <link rel="stylesheet" type="text/css" href="./app.css"/>
+</head>
+<body>
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <div class="container">
+        <a class="navbar-brand">
+            <img height="50px" src="data:image/png;base64,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" alt="">
+        </a>
+        <div class="product-name">ECL Comfort 310 Steuerung</div>
+    </div>
+</nav>
+
+<!-- Page Main Content -->
+<div class="container" id="home-container">
+    <div class="content rel">
+        <div class="center input-group">
+            <label for="ipaddress" class="form-label">IP Addresse des ECL Comfort 310</label>
+            <input type="text" id="ipaddress" placeholder="0.0.0.0"></input>
+            <button class="btn btn-sm btn-success" id="saveip" data-toggle="tooltip" data-placement="top" title="OK"><i class="fa-solid fa-check"></i></button>
+        </div>
+    </div>
+</div>
+
+<!-- Javascript -->
+<script type="text/javascript" src="./login.js"></script>
+</body></html>
