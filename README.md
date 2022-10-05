@@ -8,9 +8,9 @@ Ein Programm für die wichtigsten Einstellungen des ECL Komfort 310.
 * Wochenprogramm der Zirkulationspumpe
 
 <p float="left">
-<img src="https://raw.githubusercontent.com/mailsvb/ecl310/main/images/readme01.png" width="300">
-<img src="https://raw.githubusercontent.com/mailsvb/ecl310/main/images/readme02.png" width="300">
-<img src="https://raw.githubusercontent.com/mailsvb/ecl310/main/images/readme03.png" width="300">
+<img src="https://raw.githubusercontent.com/mailsvb/ecl310/main/images/readme01.png" width="250">
+<img src="https://raw.githubusercontent.com/mailsvb/ecl310/main/images/readme02.png" width="250">
+<img src="https://raw.githubusercontent.com/mailsvb/ecl310/main/images/readme03.png" width="250">
 </p>
 
 ## ECL an das heimische Netzwerk anschließen
