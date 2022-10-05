@@ -39,8 +39,11 @@
             <button class="btn btn-sm" id="logout" data-toggle="tooltip" data-placement="top" title="Verbindung zum ECL trennen">
                 <i class="fa-solid fa-arrow-right-from-bracket"></i>
             </button>
-            <button class="btn btn-sm" id="settings" data-toggle="tooltip" data-placement="top" title="Einstellungen">
-                <i class="fa-solid fa-gear"></i>
+            <button class="btn btn-sm" id="heizung" data-toggle="tooltip" data-placement="top" title="Einstellungen Heizung">
+                <i class="fa-solid fa-temperature-low"></i>
+            </button>
+            <button class="btn btn-sm" id="warmwasser" data-toggle="tooltip" data-placement="top" title="Einstellungen Warmwasser">
+                <i class="fa-solid fa-faucet"></i>
             </button>
             <button class="btn btn-sm" id="reload" data-toggle="tooltip" data-placement="top" title="Daten neu laden">
                 <i class="fa-solid fa-arrow-rotate-right"></i>
@@ -84,16 +87,16 @@
     </div>
 </div>
 
-<div class="container" id="settings-container">
+<div class="container" id="heizung-container">
     <div class="content rel">
         <div class="center" id="main" style="margin: 15px auto !important">
-            <label class="form-label">Einstellungen</label>
-            <button class="btn btn-sm" id="back" data-toggle="tooltip" data-placement="top" title="Zurück">
+            <label class="form-label">Einstellungen Heizung</label>
+            <button class="btn btn-sm" id="heizung-back" data-toggle="tooltip" data-placement="top" title="Zurück">
                 <i class="fa-solid fa-arrow-left"></i>
             </button>
         </div>
         <div class="center">
-            <label class="form-label" for="4200-set">Betriebsart Heizung</label>
+            <label class="form-label" for="4200-set">Betriebsart</label>
             <select class="form-select" aria-label="4200-set" id="4200-set">
                 <option value="0">Manuell</option>
                 <option value="1">Automatik</option>
@@ -126,8 +129,22 @@
                 <option value="19">1.9</option>
             </select>
         </div>
+        <div class="center" id="hz-programm">
+            <label class="form-label" for="hz-tab">Wochenprogramm Komforteinstellung (für Automatikbetrieb)</label>
+        </div>
+    </div>
+</div>
+
+<div class="container" id="warmwasser-container">
+    <div class="content rel">
+        <div class="center" id="main" style="margin: 15px auto !important">
+            <label class="form-label">Einstellungen Warmwasser</label>
+            <button class="btn btn-sm" id="warmwasser-back" data-toggle="tooltip" data-placement="top" title="Zurück">
+                <i class="fa-solid fa-arrow-left"></i>
+            </button>
+        </div>
         <div class="center">
-            <label class="form-label" for="4201-set">Betriebsart Warmwasser</label>
+            <label class="form-label" for="4201-set">Betriebsart</label>
             <select class="form-select" aria-label="4201-set" id="4201-set">
                 <option value="0">Manuell</option>
                 <option value="1">Automatik</option>
@@ -135,6 +152,12 @@
                 <option value="3">Energiesparen</option>
                 <option value="4">Frostschutz</option>
             </select>
+        </div>
+        <div class="center" id="ww-programm">
+            <label class="form-label" for="ww-tab">Wochenprogramm Komforteinstellung (für Automatikbetrieb)</label>
+        </div>
+        <div class="center" id="pu-programm">
+            <label class="form-label" for="pu-tab">Wochenprogramm Zirkulationspumpe</label>
         </div>
     </div>
 </div>

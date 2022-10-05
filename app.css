@@ -24,5 +24,4 @@ button#saveip { margin: 0px !important; width: 10%; border-bottom-right-radius: 
 .right { width: 220px; text-align: right }
 .held-call { border-bottom: 1px #ffc107 solid !important; animation: blink 1s; animation-iteration-count: 100; }
 .hold-call { border-bottom: 1px #ffc107 solid !important; }
-.error { background: #ff7777; text-align: center; }
-.error text { font-size: 18px; }
+.nav-link { padding: 3px !important }
