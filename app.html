@@ -74,6 +74,18 @@
             <label class="form-label left" id="11174"></label>
         </div>
         <div class="center">
+            <label class="form-label left" id="11176"></label>
+            <label class="form-label right" id="11177"></label>
+        </div>
+        <div class="center">
+            <label class="form-label left" id="11392"></label>
+            <label class="form-label right" id="11396"></label>
+        </div>
+        <div class="center">
+            <label class="form-label left" id="11178"></label>
+            <label class="form-label right" id="11397"></label>
+        </div>
+        <div class="center">
             <label class="form-label"><b>Warmwasser</b></label>
         </div>
         <div class="center">
@@ -90,13 +102,13 @@
 <div class="container" id="heizung-container">
     <div class="content rel">
         <div class="center" id="main" style="margin: 15px auto !important">
-            <label class="form-label">Einstellungen Heizung</label>
+            <label class="form-label-header">Einstellungen Heizung</label>
             <button class="btn btn-sm" id="heizung-back" data-toggle="tooltip" data-placement="top" title="Zurück">
                 <i class="fa-solid fa-arrow-left"></i>
             </button>
         </div>
         <div class="center">
-            <label class="form-label" for="4200-set">Betriebsart</label>
+            <label class="form-label-header" for="4200-set">Betriebsart</label>
             <select class="form-select" aria-label="4200-set" id="4200-set">
                 <option value="0">Manuell</option>
                 <option value="1">Automatik</option>
@@ -106,31 +118,64 @@
             </select>
         </div>
         <div class="center">
-            <label class="form-label" for="11174-set">Heizkurve</label>
-            <select class="form-select" aria-label="11174-set" id="11174-set">
-                <option value="1">0.1</option>
-                <option value="2">0.2</option>
-                <option value="3">0.3</option>
-                <option value="4">0.4</option>
-                <option value="5">0.5</option>
-                <option value="6">0.6</option>
-                <option value="7">0.7</option>
-                <option value="8">0.8</option>
-                <option value="9">0.9</option>
-                <option value="10">1.0</option>
-                <option value="11">1.1</option>
-                <option value="12">1.2</option>
-                <option value="13">1.3</option>
-                <option value="14">1.4</option>
-                <option value="15">1.5</option>
-                <option value="16">1.6</option>
-                <option value="17">1.7</option>
-                <option value="18">1.8</option>
-                <option value="19">1.9</option>
-            </select>
+            <label class="form-label-header" for="sommer-set">Sommer-Einstellungen (für Automatikbetrieb)</label>
+            <table class="table table-sm">
+                <thead>
+                    <tr>
+                        <td>Start-Tag</td>
+                        <td>Start-Monat</td>
+                        <td>Aus-Temperatur</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td id="so-day"></td>
+                        <td id="so-month"></td>
+                        <td id="so-temp"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="center">
+            <label class="form-label-header" for="winter-set">Winter-Einstellungen (für Automatikbetrieb)</label>
+            <table class="table table-sm">
+                <thead>
+                    <tr>
+                        <td>Start-Tag</td>
+                        <td>Start-Monat</td>
+                        <td>Aus-Temperatur</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td id="wi-day"></td>
+                        <td id="wi-month"></td>
+                        <td id="wi-temp"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="center">
+            <label class="form-label-header" for="11174-set">Einstellungen Heizkurve</label>
+            <table class="table table-sm">
+                <thead>
+                    <tr>
+                        <td>Heizkurve</td>
+                        <td>Min-Temperatur</td>
+                        <td>Max-Temperatur</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td id="heizkurve"></td>
+                        <td id="heizkurve-min"></td>
+                        <td id="heizkurve-max"></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
         <div class="center" id="hz-programm">
-            <label class="form-label" for="hz-tab">Wochenprogramm Komforteinstellung (für Automatikbetrieb)</label>
+            <label class="form-label-header" for="hz-tab">Wochenprogramm Komforteinstellung (für Automatikbetrieb)</label>
         </div>
     </div>
 </div>
@@ -138,13 +183,13 @@
 <div class="container" id="warmwasser-container">
     <div class="content rel">
         <div class="center" id="main" style="margin: 15px auto !important">
-            <label class="form-label">Einstellungen Warmwasser</label>
+            <label class="form-label-header">Einstellungen Warmwasser</label>
             <button class="btn btn-sm" id="warmwasser-back" data-toggle="tooltip" data-placement="top" title="Zurück">
                 <i class="fa-solid fa-arrow-left"></i>
             </button>
         </div>
         <div class="center">
-            <label class="form-label" for="4201-set">Betriebsart</label>
+            <label class="form-label-header" for="4201-set">Betriebsart</label>
             <select class="form-select" aria-label="4201-set" id="4201-set">
                 <option value="0">Manuell</option>
                 <option value="1">Automatik</option>
@@ -154,10 +199,10 @@
             </select>
         </div>
         <div class="center" id="ww-programm">
-            <label class="form-label" for="ww-tab">Wochenprogramm Komforteinstellung (für Automatikbetrieb)</label>
+            <label class="form-label-header" for="ww-tab">Wochenprogramm Komforteinstellung (für Automatikbetrieb)</label>
         </div>
         <div class="center" id="pu-programm">
-            <label class="form-label" for="pu-tab">Wochenprogramm Zirkulationspumpe</label>
+            <label class="form-label-header" for="pu-tab">Wochenprogramm Zirkulationspumpe</label>
         </div>
     </div>
 </div>

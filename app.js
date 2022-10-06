@@ -4,6 +4,8 @@ $( document ).ready(function() {
     $('#heizung-container').hide();
     $('#warmwasser-container').hide();
     createSchedule();
+    createOffDates();
+    createHeatCurve();
 });
 
 let lastDialledNumbers = [];
@@ -51,9 +53,6 @@ $('#4200-set').change(() => {
 });
 $('#4201-set').change(() => {
     window.electronAPI.send('action', { action: 'set', id: 4201, value: parseInt($('#4201-set').val()) });
-});
-$('#11174-set').change(() => {
-    window.electronAPI.send('action', { action: 'set', id: 11174, value: parseInt($('#11174-set').val()) });
 });
 
 $('#settings-container input').on('change', (event) => {
@@ -161,9 +160,9 @@ function createSchedule() {
         let data = `<div class="tab-content" id="${prog}-data">`
         Object.keys(ids[prog]).forEach((day, index) => {
             data += `<div class="tab-pane fade${index === 0 ? ' show active' : ''}" id="${prog}-data-${day.toLowerCase()}" role="tabpanel" aria-labelledby="${prog}-tab-${day.toLowerCase()}">`;
-            data += '<table class="table table-sm"><thead><tr><th scope="col">Zeitraum</th><th scope="col">Start</th><th scope="col">Ende</th></tr></thead><tbody>';
+            data += '<table class="table table-sm"><thead><tr><td>Zeitraum</td><td>Start</td><td>Ende</td></tr></thead><tbody>';
             Object.keys(ids[prog][day]).forEach(time => {
-                data += `<tr><th scope="row">${time}</th>`;
+                data += `<tr><td>${time}</td>`;
                 ids[prog][day][time].forEach(id => {
                     data += `<td><select class="form-select" aria-label="${id}-set" id="${id}-set">`;
                     Object.keys(options).forEach(option => {
@@ -188,6 +187,78 @@ function createSchedule() {
             });
         });
     })
+}
+
+function createOffDates() {
+    const programs = ['so', 'wi'];
+    const days = [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31' ];
+    const months = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'];
+    const temps = [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30' ];
+    const ids = {
+        so: {
+            day: 11392,
+            month: 11391,
+            temp: 11178
+        },
+        wi: {
+            day: 11396,
+            month: 11395,
+            temp: 11397
+        }
+    }
+    programs.forEach(prog => {
+        let daysData = `<select class="form-select" aria-label="${ids[prog].day}-set" id="${ids[prog].day}-set">`;
+        days.forEach(day => {
+            daysData += `<option value="${day}">${day}</option>`;
+        });
+        daysData += `</select>`;
+        $(`#${prog}-day`).append(daysData);
+        let monthData = `<select class="form-select" aria-label="${ids[prog].month}-set" id="${ids[prog].month}-set">`;
+        months.forEach(month => {
+            monthData += `<option value="${month}">${month}</option>`;
+        });
+        monthData += `</select>`;
+        $(`#${prog}-month`).append(monthData);
+        let tempData = `<select class="form-select" aria-label="${ids[prog].temp}-set" id="${ids[prog].temp}-set">`;
+        temps.forEach(temp => {
+            tempData += `<option value="${temp}">${temp}°C</option>`;
+        });
+        tempData += `</select>`;
+        $(`#${prog}-temp`).append(tempData);
+    });
+    const idsForChangeEvent = [ '11392', '11391', '11178', '11396', '11395', '11397' ];
+    idsForChangeEvent.forEach(id => {
+        $(`#${id}-set`).change(() => {
+            window.electronAPI.send('action', { action: 'set', id, value: parseInt($(`#${id}-set`).val()) });
+        });
+    });
+}
+
+function createHeatCurve() {
+    let heizKurveData = '<select class="form-select" aria-label="11174-set" id="11174-set">';
+    for (let i = 1; i <= 40; i++) {
+        heizKurveData += `<option value="${i}">${(i * 0.1).toFixed(1)}</option>`;
+    }
+    heizKurveData += '</select>';
+    $('#heizkurve').append(heizKurveData);
+    const tempLoEnd = 10;
+    const tempHiEnd = 70;
+    let loTempData = '<select class="form-select" aria-label="11176-set" id="11176-set">';
+    let hiTempData = '<select class="form-select" aria-label="11177-set" id="11177-set">';
+    for (let j = tempLoEnd; j <= tempHiEnd; j++) {
+        loTempData += `<option value="${j}">${j}°C</option>`;
+        hiTempData += `<option value="${j}">${j}°C</option>`;
+    }
+    loTempData += '</select>';
+    hiTempData += '</select>';
+    $('#heizkurve-min').append(loTempData);
+    $('#heizkurve-max').append(hiTempData);
+    const idsForChangeEvent = [ '11174', '11176', '11177' ];
+    idsForChangeEvent.forEach(id => {
+        $(`#${id}-set`).change(() => {
+            window.electronAPI.send('action', { action: 'set', id, value: parseInt($(`#${id}-set`).val()) });
+        });
+    });
 }
 
 function action(actionType, callID) {

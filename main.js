@@ -48,7 +48,7 @@ function createWindow () {
     globals.win = new BrowserWindow({
         Titel: 'ECL Comfort 310 Steuerung',
         width: 510,
-        height: 700,
+        height: 710,
         icon: nativeImage.createFromPath(join(__dirname, 'images/icon.png')),
         resizable: false,
         minimizable: false,
@@ -270,8 +270,14 @@ const items = Object.freeze([
     { number: 10202, length: 0, label: "Vorlauftemperatur: ", method: readTemp4 },
     { number: 10204, length: 0, label: "Rücklauftemperatur: ", method: readTemp4 },
     { number: 11174, length: 0, label: "Heizkurve: ", method: readKurve },
+    { number: 11176, length: 0, label: "Heizkurve Min-Temperatur: ", method: readTemp },
+    { number: 11177, length: 0, label: "Heizkurve Max-Temperatur: ", method: readTemp },
+    { number: 11178, length: 0, label: "Sommer-Aus Temperatur: ", method: readTemp },
     { number: 11179, length: 0, label: "Komforttemperatur Soll: ", method: readTemp3 },
     { number: 11180, length: 0, label: "Absenktemperatur Soll: ", method: readTemp3 },
+    { number: 11392, length: 0, label: "Sommer-Start (Tag): ", method: readSummerStart },
+    { number: 11396, length: 0, label: "Winter-Start (Tag): ", method: readWinterStart },
+    { number: 11397, length: 0, label: "Winter-Aus Temperatur: ", method: readTemp },
     { number: 12189, length: 0, label: "Komforttemperatur Soll: ", method: readTemp3 },
     { number: 12190, length: 0, label: "Absenktemperatur Soll: ", method: readTemp3 },
 ])
@@ -430,6 +436,12 @@ async function readKurve(id) {
     return `${(val / 10).toFixed(1)}`;
 }
 
+async function readTemp(id) {
+    const temp = await readValue(id);
+    globals.win.webContents.send('settings', { key: id, value: temp });
+    return `${temp}°C`;
+}
+
 async function readTemp3(id) {
     const temp = await readValue(id);
     return `${(temp / 10).toFixed(1)}°C`;
@@ -463,6 +475,22 @@ async function readBetriebsart(id) {
         default:
             return 'Unbekannt'
     }
+}
+
+async function readSummerStart() {
+    const summerStartDay = await readValue(11392);
+    const summerStartMon = await readValue(11391);
+    globals.win.webContents.send('settings', { key: 11392, value: summerStartDay });
+    globals.win.webContents.send('settings', { key: 11391, value: summerStartMon });
+    return `${summerStartDay}.${summerStartMon}.`;
+}
+
+async function readWinterStart() {
+    const winterStartDay = await readValue(11396);
+    const winterStartMon = await readValue(11395);
+    globals.win.webContents.send('settings', { key: 11396, value: winterStartDay });
+    globals.win.webContents.send('settings', { key: 11395, value: winterStartMon });
+    return `${winterStartDay}.${winterStartMon}.`;
 }
 
 async function readModus() {

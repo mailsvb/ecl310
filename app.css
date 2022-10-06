@@ -20,8 +20,11 @@ button#saveip { margin: 0px !important; width: 10%; border-bottom-right-radius: 
 .content input[id^='remote-'] { width: 100%; resize: none; padding: 5px; border: 0px; text-align: center; font-size: 0.9rem; }
 @keyframes blink { 50% { border-color: #eaeaea; } }
 .form-label { margin: 0px !important; font-size: 0.9rem !important; }
+.form-label-header { margin: 0px !important; font-size: 0.9rem !important; font-weight: 700; }
 .left { width: 220px; text-align: left }
 .right { width: 220px; text-align: right }
 .held-call { border-bottom: 1px #ffc107 solid !important; animation: blink 1s; animation-iteration-count: 100; }
 .hold-call { border-bottom: 1px #ffc107 solid !important; }
 .nav-link { padding: 3px !important }
+.table { margin-bottom: 0px !important; }
+.form-select { line-height: 17px !important; }

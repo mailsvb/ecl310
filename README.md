@@ -3,9 +3,10 @@
 Ein Programm für die wichtigsten Einstellungen des ECL Komfort 310.
 
 * Betriebsart Warmwasser und Heizung
-* Heizkurve
+* Heizkurve mit minimal- und maximal-Temperatur
+* Sommer- und Winter-Start bzw. Aus-Temperatur Einstellungen
 * Wochenprogramme für Warmwasser und Heizung
-* Wochenprogramm der Zirkulationspumpe
+* Wochenprogramm der Warmwasser-Zirkulationspumpe
 
 <p float="left">
 <img src="https://raw.githubusercontent.com/mailsvb/ecl310/main/images/readme01.png" width="250">
