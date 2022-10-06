@@ -23,3 +23,7 @@ Danfoss hat dies in einem Video beschrieben. Einfach den Anweisungen folgen bis 
 ## Installation
 
 Um das Programm zur Steuerung des ECL Komfort 310 zu installieren, ladet das Installationsprogramm [direkt aus diesem Projekt herunter](https://github.com/mailsvb/ecl310/releases/latest). Nach der Installation startet das Programm automatisch. Einfach die zuvor notierte IP Adresse eingeben, fertig.
+
+Unter Umständen, das is abhängig von den Windows Defender (oder ähnlichen Tools) Einstellungen, muss die Verwendung der App zugelassen werden. Leider kosten sogenannte code signing Zertifkate auf Dauer viel Geld, diese würden solche Probleme umgehen, da sie den Autor einer App identifizieren und Windows diesen vertraut.
+
+<img src="https://raw.githubusercontent.com/mailsvb/ecl310/main/images/readme03.png">
