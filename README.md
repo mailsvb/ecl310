@@ -26,4 +26,4 @@ Um das Programm zur Steuerung des ECL Komfort 310 zu installieren, ladet das Ins
 
 Unter Umständen, das is abhängig von den Windows Defender (oder ähnlichen Tools) Einstellungen, muss die Verwendung der App zugelassen werden. Leider kosten sogenannte code signing Zertifkate auf Dauer viel Geld, diese würden solche Probleme umgehen, da sie den Autor einer App identifizieren und Windows diesen vertraut.
 
-<img src="https://raw.githubusercontent.com/mailsvb/ecl310/main/images/readme03.png">
+<img src="https://raw.githubusercontent.com/mailsvb/ecl310/main/images/readme04.png">
